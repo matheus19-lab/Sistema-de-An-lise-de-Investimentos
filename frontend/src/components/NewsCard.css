@@ -1,0 +1,123 @@
+/* components/NewsCard.css */
+
+.news-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  transition: var(--transition);
+  animation: fadeIn 0.4s ease both;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.news-pos { border-top: none; }
+.news-neg { border-top: none; }
+.news-neu { border-top: none; }
+
+/* ── Barra de score no topo ── */
+.news-score-bar {
+  height: 3px;
+  background: var(--bg-elevated);
+}
+
+.news-score-fill {
+  height: 100%;
+  transition: width 0.6s ease;
+}
+
+.bar-pos { background: var(--color-up); }
+.bar-neg { background: var(--color-down); }
+.bar-neu { background: var(--color-neutral); }
+
+/* ── Body ── */
+.news-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+/* ── Meta ── */
+.news-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.news-source {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.news-sentiment-badge {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-pos { background: var(--color-up-bg);      color: var(--color-up); }
+.badge-neg { background: var(--color-down-bg);    color: var(--color-down); }
+.badge-neu { background: var(--color-neutral-bg); color: var(--color-neutral); }
+
+/* ── Título ── */
+.news-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.45;
+  flex: 1;
+}
+
+/* ── Footer ── */
+.news-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.news-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 0.68rem;
+  flex: 1;
+}
+
+.news-score-value {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.score-label { font-size: 0.68rem; color: var(--text-muted); }
+.score-num { font-size: 0.75rem; }
+
+.news-link {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.news-link:hover { color: var(--accent-green); background: var(--accent-green-bg); }

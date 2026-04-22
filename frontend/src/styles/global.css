@@ -1,0 +1,137 @@
+/* ============================================================
+   InvestIA - Global Styles
+   Tema: Terminal Financeiro Moderno (Bloomberg meets Fintech)
+   Fontes: IBM Plex Mono (dados), Sora (UI/títulos)
+   ============================================================ */
+
+:root {
+  /* ── Paleta de cores ── */
+  --bg-primary:     #080c18;
+  --bg-secondary:   #0d1225;
+  --bg-card:        #111827;
+  --bg-card-hover:  #161f35;
+  --bg-elevated:    #1a2236;
+
+  --border-subtle:  rgba(255, 255, 255, 0.06);
+  --border-medium:  rgba(255, 255, 255, 0.12);
+  --border-accent:  rgba(0, 255, 136, 0.3);
+
+  /* Acento principal: verde terminal */
+  --accent-green:   #00ff88;
+  --accent-green-d: #00cc6a;
+  --accent-green-bg: rgba(0, 255, 136, 0.08);
+
+  /* Alta/Baixa */
+  --color-up:       #00ff88;
+  --color-up-bg:    rgba(0, 255, 136, 0.1);
+  --color-down:     #ff4d6d;
+  --color-down-bg:  rgba(255, 77, 109, 0.1);
+  --color-neutral:  #f0c040;
+  --color-neutral-bg: rgba(240, 192, 64, 0.1);
+
+  /* Texto */
+  --text-primary:   #f0f4ff;
+  --text-secondary: #8892aa;
+  --text-muted:     #4a5568;
+  --text-accent:    #00ff88;
+
+  /* Tipografia */
+  --font-ui:        'Sora', sans-serif;
+  --font-mono:      'IBM Plex Mono', monospace;
+
+  /* Espaçamento */
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  18px;
+  --radius-xl:  24px;
+
+  /* Sombras */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 30px rgba(0, 255, 136, 0.15);
+
+  /* Transições */
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(0, 255, 136, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(0, 112, 255, 0.04) 0%, transparent 60%);
+}
+
+/* ── Scrollbar personalizada ── */
+::-webkit-scrollbar        { width: 6px; }
+::-webkit-scrollbar-track  { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb  { background: var(--bg-elevated); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-green-d); }
+
+/* ── Seleção de texto ── */
+::selection {
+  background: rgba(0, 255, 136, 0.25);
+  color: var(--text-primary);
+}
+
+/* ── Utilitários globais ── */
+.mono  { font-family: var(--font-mono); }
+.green { color: var(--color-up); }
+.red   { color: var(--color-down); }
+.amber { color: var(--color-neutral); }
+
+/* ── Animações globais ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(0, 255, 136, 0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* ── Skeleton loader ── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-elevated) 25%,
+    rgba(255,255,255,0.05) 50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}

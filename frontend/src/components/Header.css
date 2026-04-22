@@ -1,0 +1,236 @@
+/* components/Header.css */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 12, 24, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ── Ticker Tape ── */
+.ticker-tape {
+  overflow: hidden;
+  background: rgba(0, 255, 136, 0.04);
+  border-bottom: 1px solid var(--border-subtle);
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+  animation: ticker-scroll 35s linear infinite;
+  will-change: transform;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  font-size: 0.72rem;
+}
+
+.ticker-symbol {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.ticker-value {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-size: 0.7rem;
+}
+
+.ticker-change {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+.ticker-change.up   { color: var(--color-up); }
+.ticker-change.down { color: var(--color-down); }
+
+.ticker-sep {
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+
+/* ── Header Main ── */
+.header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Logo ── */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-green-bg);
+  border: 1px solid var(--border-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-green);
+  transition: var(--transition);
+}
+
+.header-logo:hover .logo-icon {
+  background: rgba(0, 255, 136, 0.15);
+  box-shadow: var(--shadow-glow);
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.logo-brand { color: var(--text-primary); }
+.logo-ai    { color: var(--accent-green); }
+
+.logo-badge {
+  font-size: 0.6rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--accent-green);
+  background: var(--accent-green-bg);
+  border: 1px solid var(--border-accent);
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+/* ── Navegação ── */
+.header-nav {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-secondary);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: var(--font-ui);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+.nav-btn:hover  { color: var(--text-primary); background: var(--bg-elevated); }
+.nav-btn.active {
+  color: var(--accent-green);
+  background: var(--accent-green-bg);
+  border: 1px solid var(--border-accent);
+}
+
+/* ── Meta (status + relógio) ── */
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.backend-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+}
+
+.backend-status.ok {
+  color: var(--color-up);
+  border-color: rgba(0, 255, 136, 0.25);
+  background: var(--color-up-bg);
+}
+
+.backend-status.error {
+  color: var(--color-down);
+  border-color: rgba(255, 77, 109, 0.25);
+  background: var(--color-down-bg);
+}
+
+.backend-status.checking {
+  color: var(--text-secondary);
+  border-color: var(--border-subtle);
+}
+
+.status-spin {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid var(--text-muted);
+  border-top-color: var(--text-secondary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.header-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.clock-date {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.clock-time {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .header-meta .header-clock { display: none; }
+  .backend-status span       { display: none; }
+  .header-main               { padding: 10px 16px; }
+  .nav-btn                   { padding: 7px 12px; font-size: 0.8rem; }
+}
+
+@media (max-width: 480px) {
+  .logo-badge  { display: none; }
+}

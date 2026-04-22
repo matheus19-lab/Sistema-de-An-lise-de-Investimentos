@@ -1,0 +1,26 @@
+# requirements.txt - Dependências do InvestIA Backend
+# Instale com: pip install -r requirements.txt
+
+# Framework Web
+flask==3.0.3
+flask-cors==4.0.1
+
+# Análise de Sentimento (NLP)
+# VADER: léxico especializado em sentimento de textos financeiros
+vaderSentiment==3.3.2
+
+# Requisições HTTP (para API de notícias real)
+requests==2.31.0
+
+# Variáveis de ambiente (opcional)
+python-dotenv==1.0.1
+
+# ── Opcional para dados reais ──────────────────────────────────────────────
+# Descomente para integrar com Yahoo Finance (dados reais de preços B3):
+# yfinance==0.2.40
+
+# Descomente para modelos de ML mais avançados:
+# scikit-learn==1.4.2
+# pandas==2.2.2
+# numpy==1.26.4
+# transformers==4.40.0  # Para modelos BERT/FinBERT

@@ -1,0 +1,179 @@
+/* components/SentimentResult.css */
+
+.sentiment-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.sentiment-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+
+.sentiment-card.card-up::before    { background: linear-gradient(90deg, transparent, var(--color-up), transparent); }
+.sentiment-card.card-down::before  { background: linear-gradient(90deg, transparent, var(--color-down), transparent); }
+.sentiment-card.card-neutral::before { background: linear-gradient(90deg, transparent, var(--color-neutral), transparent); }
+
+/* ── Header ── */
+.sentiment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sentiment-ticker-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.sentiment-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+}
+
+.badge-up      { background: var(--color-up-bg);      color: var(--color-up);      border: 1px solid rgba(0,255,136,0.3); }
+.badge-down    { background: var(--color-down-bg);    color: var(--color-down);    border: 1px solid rgba(255,77,109,0.3); }
+.badge-neutral { background: var(--color-neutral-bg); color: var(--color-neutral); border: 1px solid rgba(240,192,64,0.3); }
+
+/* ── Ticker display ── */
+.sentiment-ticker {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.ticker-display {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.sentiment-id {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ── Gauge ── */
+.gauge-container { display: flex; justify-content: center; }
+
+.gauge {
+  position: relative;
+  width: 200px;
+}
+
+.gauge-svg { width: 100%; }
+
+.gauge-label-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+.gauge-score {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.score-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 0.62rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.color-up      { color: var(--color-up); }
+.color-down    { color: var(--color-down); }
+.color-neutral { color: var(--color-neutral); }
+
+/* ── Tendência ── */
+.trend-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid;
+}
+
+.trend-up      { background: var(--color-up-bg);      color: var(--color-up);      border-color: rgba(0,255,136,0.25); }
+.trend-down    { background: var(--color-down-bg);    color: var(--color-down);    border-color: rgba(255,77,109,0.25); }
+.trend-neutral { background: var(--color-neutral-bg); color: var(--color-neutral); border-color: rgba(240,192,64,0.25); }
+
+.trend-info { display: flex; align-items: center; gap: 8px; }
+.trend-emoji { font-size: 1.2rem; }
+.trend-label { font-size: 0.88rem; font-weight: 500; }
+.trend-label strong { font-weight: 700; }
+
+.trend-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: -8px;
+}
+
+/* ── Confiança ── */
+.confidence-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.conf-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.conf-bar-wrap {
+  flex: 1;
+  height: 4px;
+  background: var(--bg-elevated);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.conf-bar {
+  height: 100%;
+  background: var(--accent-green);
+  border-radius: 2px;
+  transition: width 0.8s ease;
+}
+
+.conf-value {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  min-width: 36px;
+  text-align: right;
+}
